@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Coffee Club Café — Explore our menu of handcrafted coffees in a fun, gravity-defying interactive experience." />
+  <title>Coffee Club — Your Favourite Café</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Gravity info toast -->
+  <div class="gravity-info" id="gravityInfo">☕ Gravity kicks in soon — grab &amp; throw elements!</div>
+
+  <!-- Floor -->
+  <div class="floor"></div>
+
+  <div class="page-wrapper" id="pageWrapper">
+
+    <!-- ===== Logo ===== -->
+    <div class="logo-container" data-gravity="true" id="elLogo">
+      <img class="logo-img" src="images/logo.png" alt="Coffee Club logo" draggable="false" />
+    </div>
+
+    <!-- ===== Title ===== -->
+    <h1 class="site-title" data-gravity="true" id="elTitle">Coffee Club</h1>
+    <p class="site-subtitle" data-gravity="true" id="elSubtitle">Brewed with Love</p>
+
+    <!-- ===== Search ===== -->
+    <div class="search-wrapper" data-gravity="true" id="elSearch">
+      <div class="search-bar">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input class="search-input" type="text" placeholder="Search Coffee Menu…" id="searchInput"/>
+      </div>
+    </div>
+
+    <!-- ===== Navigation ===== -->
+    <nav class="nav-buttons" data-gravity="true" id="elNav">
+      <button class="nav-btn primary" id="btnHome">Home</button>
+      <button class="nav-btn secondary" id="btnMenu">Menu</button>
+      <button class="nav-btn secondary" id="btnAbout">About Us</button>
+      <button class="nav-btn secondary" id="btnContact">Contact</button>
+    </nav>
+
+    <!-- ===== Menu Section ===== -->
+    <h2 class="section-title" data-gravity="true" id="elMenuTitle">Our Menu</h2>
+
+    <div class="menu-grid" id="menuGrid">
+
+      <div class="menu-card" data-gravity="true" id="cardEspresso">
+        <img class="menu-card-img" src="images/espresso.png" alt="Espresso" draggable="false"/>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Espresso</div>
+          <div class="menu-card-desc">Rich, bold, and perfectly pulled.</div>
+          <span class="menu-card-price">₹149</span>
+        </div>
+      </div>
+
+      <div class="menu-card" data-gravity="true" id="cardCappuccino">
+        <img class="menu-card-img" src="images/cappuccino.png" alt="Cappuccino" draggable="false"/>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Cappuccino</div>
+          <div class="menu-card-desc">Frothy, creamy, classic Italian.</div>
+          <span class="menu-card-price">₹199</span>
+        </div>
+      </div>
+
+      <div class="menu-card" data-gravity="true" id="cardLatte">
+        <img class="menu-card-img" src="images/latte.png" alt="Latte" draggable="false"/>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Latte</div>
+          <div class="menu-card-desc">Smooth, silky, and milky.</div>
+          <span class="menu-card-price">₹219</span>
+        </div>
+      </div>
+
+      <div class="menu-card" data-gravity="true" id="cardMocha">
+        <img class="menu-card-img" src="images/mocha.png" alt="Mocha" draggable="false"/>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Mocha</div>
+          <div class="menu-card-desc">Chocolate meets espresso bliss.</div>
+          <span class="menu-card-price">₹249</span>
+        </div>
+      </div>
+
+      <div class="menu-card" data-gravity="true" id="cardColdCoffee">
+        <img class="menu-card-img" src="images/cold_coffee.png" alt="Cold Coffee" draggable="false"/>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Cold Coffee</div>
+          <div class="menu-card-desc">Chilled, creamy perfection.</div>
+          <span class="menu-card-price">₹179</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ===== Floating Coffee Icons ===== -->
+    <div class="coffee-icon" data-gravity="true" id="iconCup1">☕</div>
+    <div class="coffee-icon" data-gravity="true" id="iconCup2">☕</div>
+    <div class="coffee-icon" data-gravity="true" id="iconCup3">🫘</div>
+    <div class="coffee-icon" data-gravity="true" id="iconCup4">☕</div>
+    <div class="coffee-icon" data-gravity="true" id="iconCup5">🫘</div>
+
+    <!-- ===== Footer ===== -->
+    <footer class="site-footer" data-gravity="true" id="elFooter">
+      © 2026 Coffee Club Café &mdash; Brewed with ❤️
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

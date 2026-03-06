@@ -1,0 +1,410 @@
+/* ============================================
+   Coffee Club — Style Sheet
+   Color Palette:
+     --coffee:     #6F4E37  (Coffee brown)
+     --cream:      #FFFDD0  (Cream)
+     --dark-choc:  #2C1A0E  (Dark chocolate)
+     --beige:      #F5F0E8  (Beige)
+     --accent:     #C8956C  (Caramel accent)
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ---------- Reset & Base ---------- */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --coffee: #6F4E37;
+  --coffee-light: #8B6E55;
+  --cream: #FFFDD0;
+  --dark-choc: #2C1A0E;
+  --beige: #F5F0E8;
+  --accent: #C8956C;
+  --accent-light: #E2C4A0;
+  --shadow-soft: 0 4px 20px rgba(44, 26, 14, 0.15);
+  --shadow-hover: 0 8px 32px rgba(44, 26, 14, 0.25);
+  --shadow-card: 0 6px 24px rgba(44, 26, 14, 0.12);
+  --radius: 16px;
+  --radius-sm: 10px;
+  --transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--beige);
+  color: var(--dark-choc);
+  min-height: 100vh;
+  overflow-x: hidden;
+  /* Coffee-bean-inspired background pattern */
+  background-image:
+    radial-gradient(ellipse 12px 16px at 15% 20%, rgba(111,78,55,0.08) 50%, transparent 50%),
+    radial-gradient(ellipse 10px 14px at 45% 35%, rgba(111,78,55,0.06) 50%, transparent 50%),
+    radial-gradient(ellipse 14px 18px at 75% 15%, rgba(111,78,55,0.07) 50%, transparent 50%),
+    radial-gradient(ellipse 11px 15px at 85% 55%, rgba(111,78,55,0.05) 50%, transparent 50%),
+    radial-gradient(ellipse 13px 17px at 25% 70%, rgba(111,78,55,0.06) 50%, transparent 50%),
+    radial-gradient(ellipse 10px 13px at 55% 80%, rgba(111,78,55,0.08) 50%, transparent 50%),
+    radial-gradient(ellipse 15px 19px at 65% 50%, rgba(111,78,55,0.04) 50%, transparent 50%),
+    linear-gradient(180deg, var(--beige) 0%, #EDE5D8 100%);
+  background-attachment: fixed;
+}
+
+/* ---------- Layout Wrapper ---------- */
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding: 40px 20px 20px;
+  gap: 32px;
+  position: relative;
+}
+
+/* ---------- Logo ---------- */
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--accent-light);
+  box-shadow: var(--shadow-soft);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.logo-img:hover {
+  transform: scale(1.08);
+  box-shadow: var(--shadow-hover);
+}
+
+/* ---------- Title ---------- */
+.site-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.6rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, var(--dark-choc) 0%, var(--coffee) 50%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: center;
+  line-height: 1.15;
+}
+
+.site-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--coffee-light);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+/* ---------- Search Bar ---------- */
+.search-wrapper {
+  width: 100%;
+  max-width: 560px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fff;
+  border: 2px solid var(--accent-light);
+  border-radius: 999px;
+  padding: 12px 24px;
+  box-shadow: var(--shadow-soft);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.search-bar:focus-within {
+  border-color: var(--coffee);
+  box-shadow: var(--shadow-hover), 0 0 0 4px rgba(111,78,55,0.08);
+}
+
+.search-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: var(--dark-choc);
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: var(--accent-light);
+}
+
+/* ---------- Navigation ---------- */
+.nav-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.nav-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+  letter-spacing: 0.02em;
+}
+
+.nav-btn.primary {
+  background: linear-gradient(135deg, var(--coffee) 0%, var(--coffee-light) 100%);
+  color: var(--cream);
+  box-shadow: var(--shadow-soft);
+}
+
+.nav-btn.primary:hover {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: var(--shadow-hover);
+}
+
+.nav-btn.secondary {
+  background: #fff;
+  color: var(--coffee);
+  border: 2px solid var(--accent-light);
+  box-shadow: 0 2px 8px rgba(44, 26, 14, 0.06);
+}
+
+.nav-btn.secondary:hover {
+  background: var(--accent-light);
+  color: var(--dark-choc);
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: var(--shadow-hover);
+}
+
+/* ---------- Section Title ---------- */
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--dark-choc);
+  text-align: center;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--coffee), var(--accent));
+  border-radius: 2px;
+}
+
+/* ---------- Menu Grid ---------- */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  width: 100%;
+  max-width: 1100px;
+}
+
+/* ---------- Menu Card ---------- */
+.menu-card {
+  background: #fff;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition), box-shadow var(--transition);
+  cursor: default;
+}
+
+.menu-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+}
+
+.menu-card-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.menu-card:hover .menu-card-img {
+  transform: scale(1.06);
+}
+
+.menu-card-body {
+  padding: 16px 18px 20px;
+  overflow: hidden;
+}
+
+.menu-card-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--dark-choc);
+  margin-bottom: 4px;
+}
+
+.menu-card-desc {
+  font-size: 0.85rem;
+  color: var(--coffee-light);
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.menu-card-price {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--coffee);
+  background: linear-gradient(135deg, rgba(111,78,55,0.08), rgba(200,149,108,0.12));
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 999px;
+}
+
+/* ---------- Coffee Icon Floaters ---------- */
+.coffee-icon {
+  font-size: 2.2rem;
+  user-select: none;
+  cursor: grab;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  width: 100%;
+  text-align: center;
+  padding: 24px 16px;
+  font-size: 0.85rem;
+  color: var(--coffee-light);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  border-top: 1px solid var(--accent-light);
+  background: linear-gradient(180deg, transparent, rgba(111,78,55,0.04));
+}
+
+/* ---------- Gravity Physics Overrides ---------- */
+/* Elements controlled by the physics engine get position: absolute */
+.gravity-element {
+  position: absolute;
+  z-index: 10;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+}
+
+.gravity-element.dragging {
+  cursor: grabbing;
+  z-index: 1000;
+}
+
+/* The ground / floor line */
+.floor {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent), var(--coffee), var(--accent));
+  z-index: 5;
+}
+
+/* ---------- Info Banner (pre-gravity) ---------- */
+.gravity-info {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(44, 26, 14, 0.88);
+  color: var(--cream);
+  padding: 10px 24px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  z-index: 9999;
+  backdrop-filter: blur(12px);
+  opacity: 0;
+  animation: fadeInOut 4s ease-in-out forwards;
+  pointer-events: none;
+}
+
+@keyframes fadeInOut {
+  0%   { opacity: 0; transform: translateX(-50%) translateY(-8px); }
+  12%  { opacity: 1; transform: translateX(-50%) translateY(0); }
+  75%  { opacity: 1; transform: translateX(-50%) translateY(0); }
+  100% { opacity: 0; transform: translateX(-50%) translateY(-8px); }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .site-title {
+    font-size: 2.4rem;
+  }
+  .logo-img {
+    width: 76px;
+    height: 76px;
+  }
+  .menu-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+  }
+  .menu-card-img {
+    height: 140px;
+  }
+  .nav-btn {
+    padding: 10px 20px;
+    font-size: 0.82rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-title {
+    font-size: 1.9rem;
+  }
+  .menu-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .menu-card-img {
+    height: 110px;
+  }
+  .nav-buttons {
+    gap: 8px;
+  }
+  .page-wrapper {
+    padding: 24px 12px 12px;
+    gap: 20px;
+  }
+}
